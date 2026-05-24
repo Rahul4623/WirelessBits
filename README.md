@@ -1,12 +1,16 @@
 # WirelessBits
 
 
-What This Project Does
+# What This Project Does
 An 8-bit ASCII value is set using the DIP switches on the Boolean FPGA board. Pressing a button transmits that value as a UART serial frame. The output can be viewed in two ways simultaneously - on the laptop via Tera Term (wired USB) and on the phone via Serial Bluetooth Terminal (wireless Bluetooth).
 Example: Set switches to 01000001 (decimal 65) -> press button -> A appears on Tera Term and on the phone.
 
-Hardware Used
-HardwarePurposeDigilent Boolean FPGA boardRuns the UART transmitter design, has onboard BluetoothUSB cableConnect Boolean board to laptop - for programming and UART outputLaptop with Vivado + Tera TermFlash bitstream, monitor UART output on PCAndroid/iOS phoneReceive UART output wirelessly via Bluetooth
+# Hardware Used
+HardwarePurpose
+Digilent Boolean FPGA board-Runs the UART transmitter design, has onboard Bluetooth
+USB cable -Connect Boolean board to laptop - for programming and UART output
+Laptop with Vivado + Tera TermFlash bitstream, monitor UART output on PC.
+Android/iOS phone-Receive UART output wirelessly via Bluetooth
 
 No external modules or jumper wires needed - the Boolean board handles everything onboard.
 
