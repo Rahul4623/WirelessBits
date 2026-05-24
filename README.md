@@ -1,5 +1,5 @@
 # WirelessBits
-## What This Project Does
+
 
 ##  What This Project Does
 An 8-bit ASCII value is set using the DIP switches on the Basys3 FPGA board. Pressing a button transmits that value as a UART serial frame. The output can be viewed in two ways simultaneously - on the laptop via Tera Term (wired USB) and on the phone via Serial Bluetooth Terminal (wireless Bluetooth).
