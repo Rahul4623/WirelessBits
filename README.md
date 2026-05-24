@@ -15,7 +15,7 @@ Android/iOS phone-Receive UART output wirelessly via Bluetooth
 No external modules or jumper wires needed - the Boolean board handles everything onboard.
 
 
-How It Works
+# How It Works
 Laptop (Vivado)
       |
       | USB - flash bitstream
@@ -33,7 +33,7 @@ Laptop (Vivado)
    (wired - sees output             (wireless - phone scans,
     immediately)                     finds board, connects)
 
-Step 1 - Generate and Flash the Bitstream
+## Step 1 - Generate and Flash the Bitstream
 
 Open Vivado, create a new RTL project.
 Add all source files:
@@ -49,7 +49,7 @@ Connect the Boolean board to laptop via USB.
 Click Open Hardware Manager -> Program Device to flash the bitstream onto the board.
 
 
-Step 2 - View Output on Laptop via Tera Term
+## Step 2 - View Output on Laptop via Tera Term
 
 Open Tera Term on your laptop.
 Go to File -> New Connection -> Serial.
@@ -66,7 +66,7 @@ Flow control: None
 Click OK - Tera Term is now ready to display received characters.
 
 
-Step 3 - View Output on Phone via Serial Bluetooth Terminal
+## Step 3 - View Output on Phone via Serial Bluetooth Terminal
 
 Install Serial Bluetooth Terminal by Kai Morich (free - Play Store / App Store).
 Open the app -> tap the menu -> Devices.
@@ -76,16 +76,22 @@ Tap it to connect.
 Once connected, the terminal is live and ready to receive.
 
 
-Step 4 - Send a Character
+## Step 4 - Send a Character
 Set the DIP switches SW0-SW7 on the Boolean board to the binary value of your character.
 Press the transmit button (btn1) on the board.
 The character appears on Tera Term (laptop) and Serial Bluetooth Terminal (phone) at the same time.
 Press again -> same character is sent again. Each button press = one UART frame.
 
-Ascii Reference
-<img width="937" height="889" alt="image" src="https://github.com/user-attachments/assets/1ad6b8ab-aa79-4cbc-a5fa-87aa29933bed" />
-UART Configuration
-Parameter  Value
+## Ascii Reference
+01000001(binary)  65(decimal)   A(Character)
+01000010          66            B
+01000011          67            C
+01100001          97            a
+00110001          49            1
+00100000          32            space
+
+
+## UART Configuration
 Baud rate -9600bps
 Data bits- 8
 Parity - NoneStop 
@@ -93,8 +99,8 @@ bits  -  1
 Clock -  100 MHz (Boolean board onboard oscillator)
 Baud rate counter = 100,000,000 / 9600 - 1 = 10,415 cycles per bit
 
-Project Files
-FileDescription
+## Project Files
+
 top.v Top-level module - connects all sub-modules
 transmitter.vUART FSM - loads 8-bit data, shifts out 10-bit frame at 9600 baud LSB first
 transmit_debouncing.vButton debouncer - ensures one clean UART frame per button press
