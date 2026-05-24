@@ -57,10 +57,16 @@ Select the COM port that appears for the Boolean board (e.g. COM4, COM5).
 Go to Setup -> Serial Port and set:
 
 Baud rate: 9600
+
 Data bits: 8
+
 Parity: None
+
 Stop bits: 1
+
+
 Flow control: None
+
 
 
 Click OK - Tera Term is now ready to display received characters.
@@ -92,23 +98,34 @@ Press again -> same character is sent again. Each button press = one UART frame.
 
 
 ## UART Configuration
+
 Baud rate -9600bps
+
 Data bits- 8
+
 Parity - NoneStop 
+
 bits  -  1
+
 Clock -  100 MHz (Boolean board onboard oscillator)
+
 Baud rate counter = 100,000,000 / 9600 - 1 = 10,415 cycles per bit
 
 ## Project Files
 
 top.v Top-level module - connects all sub-modules
+
 transmitter.vUART FSM - loads 8-bit data, shifts out 10-bit frame at 9600 baud LSB first
+
 transmit_debouncing.vButton debouncer - ensures one clean UART frame per button press
+
 Boolean_UART.xdcVivado constraints - all pin assignments for Boolean board
+
 
 
 Implemented Image
 <img width="1861" height="1056" alt="image" src="https://github.com/user-attachments/assets/7fba7b54-a441-4b12-bf25-f4f6e6a08825" />
 
 Author R Shahishnu Rahul
+
 ECE @SRM UNIVERSITY 
